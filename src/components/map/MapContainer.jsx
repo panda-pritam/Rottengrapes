@@ -56,9 +56,6 @@ const MapComponent = ({location, setLocation}) => {
   });
   useEffect(() => {
     console.log("postion at first run -> ", position);
-    if (markerRef.current) {
-      markerRef.current.leafletElement.openPopup();
-    }
   }, []);
 
   useEffect(() => {
@@ -126,11 +123,14 @@ const MapComponent = ({location, setLocation}) => {
                       </Box>
                       <Box className={styles.subBox}>
                         <span className={styles.lable}>Temp:</span>
-                        <span>{temp[idx]}</span>
+                        <span>
+                          {temp[idx]}
+                          <span>&#176;</span>C
+                        </span>
                       </Box>
                       <Box className={styles.subBox}>
                         <span className={styles.lable}>Wind Speed:</span>
-                        <span>{wind[idx]}</span>
+                        <span>{wind[idx]} km/hr.</span>
                       </Box>
                       <Box className={styles.subBox}>
                         <span className={styles.lable}>Rain:</span>
@@ -167,11 +167,14 @@ const MapComponent = ({location, setLocation}) => {
                       </Box>
                       <Box className={styles.subBox}>
                         <span className={styles.lable}>Temp:</span>
-                        <span>{temp[idx]}</span>
+                        <span>
+                          {temp[idx]}
+                          <span>&#176;</span>C
+                        </span>
                       </Box>
                       <Box className={styles.subBox}>
                         <span className={styles.lable}>Wind Speed:</span>
-                        <span>{wind[idx]}</span>
+                        <span>{wind[idx]} km/hr.</span>
                       </Box>
                       <Box className={styles.subBox}>
                         <span className={styles.lable}>Rain:</span>
