@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <div className="headerDiv">
-        <h1>Wather App</h1>
+        <h1>Weather App</h1>
       </div>
       <div className="wraper">
         <InputForm setLocation={setLocation} />

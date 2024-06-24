@@ -95,6 +95,9 @@ const MapComponent = ({location, setLocation}) => {
   };
   const onButtonClickHandler = e => {
     localStorage.setItem("place", JSON.stringify(position));
+    enqueueSnackbar(`Your favorite place has added.`, {
+      variant: "success",
+    });
   };
 
   return (
@@ -151,50 +154,6 @@ const MapComponent = ({location, setLocation}) => {
               </Button>
             </Popup>
           </Marker>
-          <CircleMarker
-            center={position}
-            radius={60} // Adjust radius as needed
-            color="blue"
-          >
-            <Popup className={styles.mainPopBox}>
-              {date ? (
-                date.map((ele, idx) => {
-                  return (
-                    <Box className={styles.contentBox}>
-                      <Box className={styles.subBox}>
-                        <span className={styles.lable}>Date:</span>
-                        <span>{ele}</span>
-                      </Box>
-                      <Box className={styles.subBox}>
-                        <span className={styles.lable}>Temp:</span>
-                        <span>
-                          {temp[idx]}
-                          <span>&#176;</span>C
-                        </span>
-                      </Box>
-                      <Box className={styles.subBox}>
-                        <span className={styles.lable}>Wind Speed:</span>
-                        <span>{wind[idx]} km/hr.</span>
-                      </Box>
-                      <Box className={styles.subBox}>
-                        <span className={styles.lable}>Rain:</span>
-                        <span>{rain[idx] ? "Rain expexted" : "No rain"}</span>
-                      </Box>
-                    </Box>
-                  );
-                })
-              ) : (
-                <Box>data is loading....</Box>
-              )}
-              <Button
-                variant="contained"
-                className={styles.btn}
-                onClick={onButtonClickHandler}
-              >
-                Set as favorite city.
-              </Button>
-            </Popup>
-          </CircleMarker>
         </>
       )}
     </MapContainer>
